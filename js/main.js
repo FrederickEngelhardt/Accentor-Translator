@@ -2,6 +2,7 @@ $(document).ready(function(){
   console.log('loaded')
   if (localStorage.getItem("selected") !== null){
     $("#language")[0].innerHTML = "Language: "+localStorage.getItem("selected")
+    $("#translation-title")[0].innerHTML = localStorage.getItem("selected")
   }
 // GLOBALS
   // localStorage.clear()
@@ -117,11 +118,12 @@ $(document).ready(function(){
   function createNav(){
     for (let i in translateType){
       // console.log(i)
-      let language = "<li class="+i+"><a href=''#!'>"+i+"</a></li>"
+      let groupClass = "translateType"
+      let language = "<li class="+translateType+' '+i+"><a href=''#!'>"+i+"</a></li>"
       $(".language-selector").append(language)
+
     }
   }
-  // make an onload?
   createNav()
 
 
@@ -141,6 +143,7 @@ $(document).ready(function(){
       $(search).click(function(event){
         event.preventDefault()
         $("#language")[0].innerHTML = "Language: "+i
+        $("#translation-title")[0].innerHTML = i
         localStorage.setItem("selected",i)
       })
     }

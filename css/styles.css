@@ -24,5 +24,13 @@ h3 {
 }
 
 .card {
-  height: 300px;
+  min-height: 250px;
+  height: auto;
+  text-transform: capitalize;
+}
+.translateType {
+  text-transform: capitalize;
+}
+.innertext {
+  font-size: 20px
 }
