@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Accentor: Learn Wisely</title>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src='js/main.js'></script>
+    <link rel='stylesheet' href='css/styles.css'>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+   <div class="nav-wrapper blue darken-3">
+     <a href="index.html" class="center nav-head brand-logo">Accentor</a>
+   </div>
+ </nav>
+ <!-- END NAVBAR -->
+
+<div class="container">
+<!-- This is the beginning of row 1 -->
+  <div class="row">
+      <!--Translation card -->
+      <div class="align-center card col s12 l12">
+
+<!-- NOTE: creates a drop down selection menu on large screens & pop out window for mobile devices -->
+        <div class="title s12 m12 l12">
+          <nav>
+            <div class="nav-wrapper yellow darken-4">
+          <a href="index.html" id="language" class="brand-logo">Language: N/A</a>
+          <ul id="slide-out" class="side-nav">
+        <li><a href="#!">Return</a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li>
+              <a class="collapsible-header">Languages<i class="material-icons">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul class="language-selector">
+                  <!-- NAV TABLE dropped in here -->
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Select Language<i class="material-icons right">arrow_drop_down</i></a></li>
+        <ul id='dropdown1' class='dropdown-content language-selector'>
+          <!-- NAV TABLE dropped in here -->
+        </ul>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+        </div>
+
+
+
+
+
+
+
+        <div class="input-field col l6 s12">
+          <i class="material-icons prefix">text_fields</i>
+          <input type="text" class="validate">
+          <label for="icon_telephone">Type a sentance in here</label>
+        </div>
+        <!-- Click to translate -->
+        <button id="submit" class="valign right btn waves-effect waves-light" type="submit" name="action">translate
+          <i class="material-icons small right">send</i>
+        </button>
+        <div class="innertext">
+          <p>This text is replaced by JavaScript return</p>
+          </div>
+      </div>
+      <!-- END card -->
+      <!-- Yoda speak card 1 -->
+      <!-- <div class="card col s12 l6">
+        <div class="input-field col l6 s12">
+          <i class="material-icons prefix">text_fields</i>
+          <input type="text" class="validate">
+          <label for="icon_telephone">Type a sentance in here</label>
+          </div> -->
+
+          <!-- Click to translate -->
+          <!-- <button id="submit" class="right btn waves-effect waves-light" type="submit" name="action">translate
+            <i class="material-icons small right">send</i>
+          </button> -->
+<!--
+        <div class="innertext">
+          <p>This text is replaced by JavaScript return</p>
+          </div>
+      </div> -->
+      <!-- END card  -->
+  </div> <!-- This is the end of row 1 -->
+</div> <!-- container closed -->
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,28 @@
+body {
+    background-color: #EEEEEE;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: x-small;
+    color: #666666;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1 {
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+}
+
+.card {
+  height: 300px;
+}
