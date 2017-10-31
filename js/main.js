@@ -92,6 +92,7 @@ $(document).ready(function(){
 
   //***GLOBALS
   function createSearchString (text) {
+    console.log(text);
     return encodeURIComponent(text)
   }
   let selection = null
@@ -118,8 +119,8 @@ $(document).ready(function(){
   function createNav(){
     for (let i in translateType){
       // console.log(i)
-      let groupClass = "translateType"
-      let language = "<li class="+translateType+' '+i+"><a href=''#!'>"+i+"</a></li>"
+      let groupClass = JSON.stringify("translateType " + i)
+      let language = "<li class="+groupClass+"><a href=''#!'>"+i+"</a></li>"
       $(".language-selector").append(language)
 
     }
@@ -132,6 +133,16 @@ $(document).ready(function(){
 
   // Creates event listeners for all classes in translateType
   function createListeners(){
+    $(".submit-button").click(function(event){
+      event.preventDefault()
+      console.log('clicked')
+      if (localStorage.getItem("selected") !== null || $("#input_text")[0].innerHTML === '' ){
+        let text = $("#input_text")[0]["value"]
+        console.log(text);
+        translate(text)
+      }
+      else {return alert('Please select a language.')}
+    })
     $("#language").click(function(event){
       event.preventDefault()
     })
@@ -165,29 +176,34 @@ $(document).ready(function(){
   // TEST
   function translate (text) {
     let searchString = createSearchString(text)
-    let inputString = "http://api.funtranslations.com/translate/"+translateType[selection]+"?text=" + searchString
+    let language = localStorage.getItem("selected")
+    console.log(language)
+    let inputString = "http://api.funtranslations.com/translate/"+language+"?text=" + searchString
     console.log(inputString)
-    // ajax(inputString)
+    apiSearch(inputString)
   }
-  translate('It is a good day to die')
-  function ajax (inputString) {
+  function apiSearch (inputString) {
     let search = {
       "method": "POST",
       "url": inputString,
       "dataType": "json",
     }
     $.ajax(search).done(function(data) {
-          // if ($.ajax(search).status !== 200) {
-          //   console.log('failed test');
-          //   return
-          //   }
           let translatedString = data.contents.translated
           console.log(translatedString)
-          return translatedString
+          $("#inputField")[0].innerHTML = translatedString
+          // return translatedString
 
+      }).fail(function(err){
+        console.log('Please wait an hour for the api to work. OR use a VPN.')
       })
+      return translatedString
     }
 
 
 
-})
+
+
+
+
+}) //end of document.ready
