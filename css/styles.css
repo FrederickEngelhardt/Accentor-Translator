@@ -4,6 +4,7 @@ body {
     -webkit-font-smoothing: antialiased;
     font-size: x-small;
     color: #666666;
+    background: #e6e6e6;
 }
 
 ul, ol {
