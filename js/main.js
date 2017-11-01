@@ -1,5 +1,4 @@
 //***GLOBALS
-var selection = null
 var text
 const translateAccents = {
   yoda: "yoda.json",
@@ -103,9 +102,7 @@ function createListeners(){
 function translate (text) {
   let searchString = createSearchString(text)
   let language = localStorage.getItem("selected")
-  console.log(language)
-  let inputString = "http://api.funtranslations.com/translate/"+language+"?text=" + searchString
-  console.log(inputString)
+  let inputString = "http://api.funtranslations.com/translate/"+language+"?text=" + searchString;
   apiSearch(inputString)
 }
 function apiSearch (inputString) {
@@ -126,11 +123,8 @@ function apiSearch (inputString) {
     // return translatedString
   }
 
-
-
-
 $(document).ready(function(){
-// check to see if local storage contains a selected value when document loads
+  // check to see if local storage contains a selected value when document loads
   if (localStorage.getItem("selected") !== null){
     $("#language")[0].innerHTML = "Language: "+localStorage.getItem("name")
     $("#translation-title")[0].innerHTML = localStorage.getItem("name")
