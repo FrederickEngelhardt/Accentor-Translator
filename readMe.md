@@ -1,8 +1,20 @@
 Welcome to Accentor!
 
-Overview:
+Installation instructions:
+*dependencies are mocha and chai*
+
+1. fork and clone this repository
+2. npm install //You will need mocha and chai to run tests
+3. open tests/index.html in web browser to check that tests pass.
+
+*screenshots*
+Review screenshots/ for tests.html preview
+Review screenshots/ for generic look and feel of the website.
+
+*Overview:*
 1.    This application acts as a translator from English
     to either accented English or a completely different language.
+    Development was a mobile first approach.
 
 2.  It utilizes:
     a)    18 APIs from http://funtranslations.com/
