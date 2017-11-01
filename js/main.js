@@ -1,96 +1,20 @@
 $(document).ready(function(){
-  console.log('loaded')
-  if (localStorage.getItem("selected") !== null){
-    $("#language")[0].innerHTML = "Language: "+localStorage.getItem("selected")
-    $("#translation-title")[0].innerHTML = localStorage.getItem("selected")
-  }
-// GLOBALS
-  // localStorage.clear()
-  // var access_token
-  // var translationText = "Hello how are you"
-  // var lang_from = "english"
-  // var lang_to = "french"
-  // // $.get('https://api.cognitive.microsoft.com/sts/v1.0/issueToken')
-  // if (localStorage.getItem('token') === null) {
-  //   var settings = {
-  //     "async": true,
-  //     "crossDomain": true,
-  //     "url": "https://api.cognitive.microsoft.com/sts/v1.0/issueToken",
-  //     "method": "POST",
-  //     "headers": {
-  //       "ocp-apim-subscription-key": "1e3e69b05f15457f8b9fe8d4edf44a38",
-  //       "content-type": "application/json",
-  //       "accept": "application/jwt",
-  //       "cache-control": "no-cache",
-  //     }
-  //   }
-  //   $.ajax(settings).done(function (response) {
-  //     // console.log(response);
-  //     access_token = response
-  //     localStorage.setItem('token',access_token)
-  //     console.log(response)
-  //     translation(access_token)
-  //   })
-  // }
-  // else {
-  //   console.log(localStorage.getItem('token'))
-  //   translation(access_token)
-  // }
-  //
-  // function translation (access_token, translationText) {
-  //   var translation_request = {
-  //     "appid": null,
-  //     "url": "https://api.microsofttranslator.com/V2/Http.svc/Translate",
-  //     "method": "POST",
-  //     "text": translationText,
-  //     "from": lang_from,
-  //     "to": lang_to,
-  //     "headers": {
-  //       // "ocp-apim-subscription-key": "1e3e69b05f15457f8b9fe8d4edf44a38",
-  //       "Authorization": "Bearer" + " " + access_token,
-  //       // "accept": "application/jwt",
-  //       // "cache-control": "no-cache",
-  //     }
-  //     }
-  //     $.ajax(translation_request).done(function (response) {
-  //       // console.log(response);
-  //       localStorage.setItem(translationText,response)
-  //       console.log(response)
-  //     })
-  //
-  //
-  //   }
-    // JSON.stringify()
 
 
-
-
-           //
-          //  onload = function ()
-          //  {
-          //    console.log('loaded scripts')
-          //      var from = "en", to = "es", text = "hello world", appid = null;
-          //      var s = document.createElement("script");
-          //      s.src = "http://api.microsofttranslator.com/V2/Ajax.svc/Translate" +
-          //          "?Ocp-Apim-Subscription-Key " + encodeURIComponent('1e3e69b05f15457f8b9fe8d4edf44a38') +
-          //          "&from=" + encodeURIComponent(from) +
-          //          "&to=" + encodeURIComponent(to) +
-          //          "&appid=" + encodeURIComponent(appId) +
-          //          "&text=" + encodeURIComponent(text) +
-          //          "&oncomplete=mycallback";
-          //      document.body.appendChild(s);
-          //  }
-           //
-          //  function mycallback(response)
-          //  {
-          //      alert(response);
-          //  }
-
-
-
-  // var key1 = "1e3e69b05f15457f8b9fe8d4edf44a38"
 
   //***GLOBALS
+
+  $('.button-collapse').sideNav({
+    menuWidth: 300, // Default is 300
+    edge: 'left', // Choose the horizontal origin
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    draggable: true, // Choose whether you can drag to open on touch screens,
+    onOpen: function(el) {return console.log('hello')},
+    onClose: function() {
+      return console.log('closed')
+    }
+  });
+
   function createSearchString (text) {
     console.log(text);
     return encodeURIComponent(text)
@@ -137,7 +61,7 @@ $(document).ready(function(){
       event.preventDefault()
       console.log('clicked')
       if (localStorage.getItem("selected") !== null || $("#input_text")[0].innerHTML === '' ){
-        let text = $("#input_text")[0]["value"]
+        text = $("#input_text")[0]["value"]
         console.log(text);
         translate(text)
       }
@@ -161,19 +85,10 @@ $(document).ready(function(){
   }
   createListeners()
 
-  $('.button-collapse').sideNav({
-    menuWidth: 300, // Default is 300
-    edge: 'left', // Choose the horizontal origin
-    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    draggable: true, // Choose whether you can drag to open on touch screens,
-    onOpen: function(el) {return console.log('hello')},
-    onClose: function() {
-      return console.log('closed')
-    }
-  });
 
 
-  // TEST
+
+  //
   function translate (text) {
     let searchString = createSearchString(text)
     let language = localStorage.getItem("selected")
@@ -200,8 +115,11 @@ $(document).ready(function(){
       return translatedString
     }
 
-
-
+// check to see if local storage contains a selected value when document loads
+    if (localStorage.getItem("selected") !== null){
+      $("#language")[0].innerHTML = "Language: "+localStorage.getItem("selected")
+      $("#translation-title")[0].innerHTML = localStorage.getItem("selected")
+    }
 
 
 

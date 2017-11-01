@@ -1,14 +1,16 @@
 $(document).ready(function(){
   //GLOBALS
-  console.log('loaded mstranslate')
+  // TRANSLATION LANGUAGE CODES:
+  // https://msdn.microsoft.com/en-us/library/hh456380.aspx
+  console.log("loaded mstranslate")
     // localStorage.clear()
+    var text = "My api actually works"
     var access_token
-    var translationText = JSON.stringify("Hello how are you")
-    var lang_from = JSON.stringify("en")
-    var lang_to = JSON.stringify("fr")
+    var lang_from = "en"
+    var lang_to = "fr"
     var translatedLang
     // $.get('https://api.cognitive.microsoft.com/sts/v1.0/issueToken')
-    if (localStorage.getItem('token') === null) {
+    if (localStorage.getItem("token") === null) {
       var settings = {
         "async": true,
         "crossDomain": true,
@@ -30,30 +32,30 @@ $(document).ready(function(){
           })
         }
         else {
-          console.log(localStorage.getItem('token'))
-          translation(access_token)
+          console.log(localStorage.getItem("token"))
+          translation()
         }
 
-        function translation (access_token, translationText) {
+        function translation () {
           var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://api.microsofttranslator.com/V2/Http.svc/Translate?appid=&text="+text+"&from="+lang_from+"&to="+lang_to
+            "url": "https://api.microsofttranslator.com/V2/Http.svc/Translate?"+
+            "appid=Bearer "+localStorage.getItem("token")+
+            "&text="+encodeURIComponent(text)+
+            "&from="+encodeURIComponent(lang_from)+
+            "&to="+encodeURIComponent(lang_to),
             "method": "GET",
             "dataType": "text"
           }
-
           $.ajax(settings).done(function (data) {
-            console.log(data);
             translatedLang = $(data).text()
             console.log(translatedLang)
+          }).fail(function (){
+            localStorage.removeItem("token")
+            console.log('There was an error. Perhaps the token has expired. Please click the button again and your token will be refreshed.')
           });
 
 
   }
-
-
-
-
-
     })
