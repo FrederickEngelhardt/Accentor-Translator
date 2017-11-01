@@ -10,8 +10,8 @@ const expect = chai.expect
       expect(translateLanguages).to.be.a('object')
     })
   })
-  describe('function generateToken', function () {
-    it('to return localStorage token', function () {
+  describe('generateToken', function () {
+    it('Is a function', function () {
       expect(generateToken).to.be.a('function')
     })
   })
