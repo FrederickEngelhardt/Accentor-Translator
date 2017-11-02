@@ -55,7 +55,6 @@ const translateLanguages = {
   "yua": "Yucatec Maya"
 }
 var access_token
-var lang_from = "en"
 var translatedLang
 
 function generateToken () {
@@ -84,7 +83,7 @@ function msTranslation (text) {
     "url": "https://api.microsofttranslator.com/V2/Http.svc/Translate?"+
     "appid=Bearer "+localStorage.getItem("token")+
     "&text="+encodeURIComponent(text)+
-    "&from="+encodeURIComponent(lang_from)+
+    "&from="+encodeURIComponent(localStorage.getItem("inputName"))+
     "&to="+encodeURIComponent(localStorage.getItem("selected")),
     "method": "GET",
     "dataType": "text"

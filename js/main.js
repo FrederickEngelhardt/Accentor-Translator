@@ -38,18 +38,22 @@ function sideNav (){
 function createNav(){
   for (let i in translateAccents){
     // console.log(i)
-    let groupClass = JSON.stringify("translateAccents " + i)
-    let accents = "<li class="+groupClass+"><a href=''#!'>"+i+"</a></li>"
+    let groupClass = "translateAccents " + i
+    let accents = JSON.stringify("<li class='"+groupClass+"'><a href=''#!'>"+i+"</a></li>")
     $(".accent-selector").append(accents)
 
   }
   for (let i in translateLanguages){
     // console.log(i)
-    let groupClass = JSON.stringify("translateLanguages " +i)
-    let language = "<li class="+groupClass+"><a href=''#!'>"+translateLanguages[i]+"</a></li>"
-    $(".starting-selector").append(language)
+    let groupClass = "translateLanguages "+i
+    let language = "<li class='"+groupClass+"'><a href=''#!'>"+translateLanguages[i]+"</a></li>"
     $(".language-selector").append(language)
-
+  }
+  for (let i in translateLanguages){
+    let startClass = "start"+i
+    let startLanguage = JSON.stringify("<li class='"+startClass+"'><a href=''#!'>"+translateLanguages[i]+"</a></li>")
+    console.log(startLanguage)
+    $(".starting-selector").append(startLanguage)
   }
 }
 
@@ -60,7 +64,6 @@ function createListeners(){
     console.log('clicked')
     if (localStorage.getItem("selected") !== null || $("#input_text")[0].innerHTML === '' ){
       text = $("#input_text")[0]["value"]
-      console.log(text);
       if (localStorage.getItem("type") === "lang"){
         msTranslation(text)
       }
@@ -76,26 +79,38 @@ function createListeners(){
   $(".nav-head").click(function(event){
     event.preventDefault()
   })
+  // Event Listeners for Output Accents
   for (let i in translateAccents){
     let search = '.'+i
     $(search).click(function(event){
       event.preventDefault()
-      $("#language")[0].innerHTML = "Language: "+i
-      $("#translation-title")[0].innerHTML = i
+      // $("#language")[0].innerHTML = "Language: "+i
+      $("#translation-title")[0].innerHTML = "Output Accent: <span>"+i+"</span"
       localStorage.setItem("selected",translateAccents[i])
       localStorage.setItem("name",i)
       localStorage.setItem("type","accent")
     })
   }
+  // Event listeners for Output Languages
   for (let i in translateLanguages){
     let search = '.'+i
     $(search).click(function(event){
       event.preventDefault()
-      $("#language")[0].innerHTML = "Language: "+translateLanguages[i]
-      $("#translation-title")[0].innerHTML = translateLanguages[i]
+      // $("#language")[0].innerHTML = "Language: "+translateLanguages[i]
+      $("#translation-title")[0].innerHTML = "Output Language <span>"+translateLanguages[i]+"</span>"
       localStorage.setItem("selected",i)
       localStorage.setItem("name",translateLanguages[i])
       localStorage.setItem("type","lang")
+    })
+  }
+  // Event listeners for Input language
+  for (let i in translateLanguages){
+    let search =".start"+i
+    $(search).click(function(event){
+      event.preventDefault()
+      $("#input-title")[0].innerHTML = "Input Language <span>"+translateLanguages[i]+"</span>"
+      localStorage.setItem("inputLang",translateLanguages[i])
+      localStorage.setItem("inputName",[i])
     })
   }
 }
@@ -131,8 +146,10 @@ function apiSearch (inputString) {
 $(document).ready(function(){
   // check to see if local storage contains a selected value when document loads
   if (localStorage.getItem("selected") !== null){
-    $("#language")[0].innerHTML = "Language: "+localStorage.getItem("name")
-    $("#translation-title")[0].innerHTML = localStorage.getItem("name")
+    $("#translation-title")[0].innerHTML = "Output Language: <span>"+localStorage.getItem("name")+"</span>"
+  }
+  if (localStorage.getItem("inputLang") !== null){
+    $("#input-title")[0].innerHTML = "Input Language: <span>"+localStorage.getItem("inputLang")+"</span>"
   }
   sideNav()
   createNav()

@@ -41,7 +41,7 @@
             <div class="nav-wrapper yellow darken-4">
 
               <!--language inserted here  -->
-          <a href="index.html" id="language" class="center brand-logo"></a>
+          <a href="index.html" id="language" class="center brand-logo">Translator</a>
           <ul id="slide-out" class="side-nav">
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
@@ -75,13 +75,7 @@
           </ul>
         </li>
       </ul>
-      <ul class="right hide-on-med-and-down">
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Select Language<i class="material-icons right">arrow_drop_down</i></a></li>
-        <ul id="dropdown1" class="language-selector accent-selector dropdown-content">
-          <!-- NAV TABLE dropped in here -->
-        </ul>
-      </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+   <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
     </div>
   </nav>
         </div>
@@ -98,7 +92,8 @@
         </div>
         <div class="col s12 m8 l8">
           <div class="innertext">
-            <h4 id="translation-title"></h4>
+            <h4 id="input-title">Input Language: <span>English</span></h4>
+            <h4 id="translation-title">Output Language: <span>Unselected</span></h4>
             <p id="inputField" class="flow-text"></p>
             </div>
         </div>
@@ -118,7 +113,7 @@
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
+    <div class="modal-content flow-text">
       <h4>Accentor Tutorial:</h4>
       <p> 1. Select your starting language using the menu. Default is English. <br><br>
           2. Select either an accent or a language to translate to using the menu.
@@ -136,7 +131,5 @@
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Back</a>
     </div>
   </div>
-
-
   </body>
 </html>
