@@ -47,6 +47,7 @@ function createNav(){
     // console.log(i)
     let groupClass = JSON.stringify("translateLanguages " +i)
     let language = "<li class="+groupClass+"><a href=''#!'>"+translateLanguages[i]+"</a></li>"
+    $(".starting-selector").append(language)
     $(".language-selector").append(language)
 
   }

@@ -4,7 +4,15 @@ body {
     -webkit-font-smoothing: antialiased;
     font-size: x-small;
     color: #666666;
-    background: #e6e6e6;
+    background: url("../img/bgimg.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.innertext p {
+  font-size: 40px
 }
 
 ul, ol {
@@ -25,7 +33,7 @@ h3 {
 }
 
 .card {
-  min-height: 250px;
+  min-height: 310px;
   height: auto;
   text-transform: capitalize;
 }
@@ -35,3 +43,6 @@ h3 {
 .innertext {
   font-size: 20px
 }
+
+/**/ DISABLES SCROLLING
+html, body {margin: 0; height: 100%; overflow: hidden}

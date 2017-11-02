@@ -31,10 +31,10 @@
 <!-- This is the beginning of row 1 -->
   <div class="row">
       <!--Translation card -->
-      <div class="align-center card col s12 l12">
+      <div class="align-center row s12 m12 l12 card">
 
 <!-- NOTE: creates a drop down selection menu on large screens & pop out window for mobile devices -->
-        <div class="title s12 m12 l12">
+        <div class="title">
           <nav>
             <div class="nav-wrapper yellow darken-4">
 
@@ -44,6 +44,14 @@
         <li><a href="#!">Return</a></li>
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
+            <li>
+              <a class="collapsible-header">Starting Language (default EN)<i class="material-icons">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul class="starting-selector">
+                  <!-- NAV TABLE dropped in here -->
+                </ul>
+              </div>
+            </li>
             <li>
               <a class="collapsible-header">Accents<i class="material-icons">arrow_drop_down</i></a>
               <div class="collapsible-body">
@@ -65,7 +73,7 @@
       </ul>
       <ul class="right hide-on-med-and-down">
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Select Language<i class="material-icons right">arrow_drop_down</i></a></li>
-        <ul id="dropdown1" class="language-selector dropdown-content">
+        <ul id="dropdown1" class="language-selector accent-selector dropdown-content">
           <!-- NAV TABLE dropped in here -->
         </ul>
       </ul>
@@ -87,18 +95,19 @@
         <div class="col s12 m8 l8">
           <div class="innertext">
             <h4 id="translation-title"></h4>
-            <p id="inputField"></p>
+            <p id="inputField" class="flow-text"></p>
             </div>
         </div>
 
         <!-- submit small column  -->
 
 
-      </div> <!-- col inside card1 -->
+      </div> <!-- row inside card1 -->
       <!-- END card -->
   </div> <!-- This is the end of card row 1-->
 
 </div> <!-- container closed -->
+
 
 
 
