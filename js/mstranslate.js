@@ -83,7 +83,7 @@ function msTranslation (text) {
     "appid=Bearer "+localStorage.getItem("token")+
     "&text="+encodeURIComponent(text)+
     "&from="+encodeURIComponent(localStorage.getItem("inputName"))+
-    "&to="+encodeURIComponent(localStorage.getItem("selected")),
+    "&to="+encodeURIComponent(localStorage.getItem("outputName")),
     "method": "GET",
     "dataType": "text"
   }

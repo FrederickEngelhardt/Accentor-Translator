@@ -161,7 +161,7 @@ function apiSearch (inputString) {
 $(document).ready(function(){
   // check to see if local storage contains a selected value when document loads
   if (localStorage.getItem("inputLang") === null){
-    localStorage.setItem("inputLang","en")
+    localStorage.setItem("inputLang","English")
     localStorage.setItem("inputName","en")
   }
   if (localStorage.getItem("outputName") !== null){
