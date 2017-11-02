@@ -29,22 +29,16 @@ function sideNav (){
     edge: 'left', // Choose the horizontal origin
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
     draggable: true, // Choose whether you can drag to open on touch screens,
-    onOpen: function(el) {return console.log('hello')},
-    onClose: function() {
-      return console.log('closed')
-    }
   })
 }
 function createNav(){
   for (let i in translateAccents){
-    // console.log(i)
     let groupClass = "translateAccents " + i
     let accents = JSON.stringify("<li class='"+groupClass+"'><a href=''#!'>"+i+"</a></li>")
     $(".accent-selector").append(accents)
 
   }
   for (let i in translateLanguages){
-    // console.log(i)
     let groupClass = "translateLanguages "+i
     let language = "<li class='"+groupClass+"'><a href=''#!'>"+translateLanguages[i]+"</a></li>"
     $(".language-selector").append(language)
@@ -52,7 +46,6 @@ function createNav(){
   for (let i in translateLanguages){
     let startClass = "start"+i
     let startLanguage = JSON.stringify("<li class='"+startClass+"'><a href=''#!'>"+translateLanguages[i]+"</a></li>")
-    console.log(startLanguage)
     $(".starting-selector").append(startLanguage)
   }
 }
@@ -61,6 +54,9 @@ function createNav(){
 function createListeners(){
   // SWAP LANGUAGES
   $("#swap").click(function(event){
+    if (localStorage.getItem("outputName") === null){
+      return
+    }
     event.preventDefault()
     let holder1 = localStorage.getItem("inputName")
     let holder1Name = localStorage.getItem("inputLang")
@@ -149,7 +145,6 @@ function apiSearch (inputString) {
   }
   $.ajax(search).done(function(data) {
         let translatedString = data.contents.translated
-        console.log(translatedString)
         $("#inputField")[0].innerHTML = translatedString
         // return translatedString
 
@@ -165,6 +160,10 @@ function apiSearch (inputString) {
 
 $(document).ready(function(){
   // check to see if local storage contains a selected value when document loads
+  if (localStorage.getItem("inputLang") === null){
+    localStorage.setItem("inputLang","en")
+    localStorage.setItem("inputName","en")
+  }
   if (localStorage.getItem("outputName") !== null){
     $("#translation-title")[0].innerHTML = "Output Language: <span>"+localStorage.getItem("name")+"</span>"
   }
@@ -178,7 +177,4 @@ $(document).ready(function(){
   if (localStorage.getItem('message') === null){
     generateModal()
   }
-  //  $('#modal1').event.target(function(){
-  //    console.log('clicked')
-  //  })
 }) //end of document.ready

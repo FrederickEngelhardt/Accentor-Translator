@@ -73,7 +73,6 @@ function generateToken () {
   $.ajax(settings).done(function (response) {
       access_token = response
       return localStorage.setItem('token',access_token)
-      console.log(response)
       })
 }
 function msTranslation (text) {
@@ -90,7 +89,6 @@ function msTranslation (text) {
   }
   $.ajax(settings).done(function (data) {
     translatedLang = $(data).text()
-    console.log(translatedLang)
     $("#inputField")[0].innerHTML = translatedLang
   }).fail(function (){
     localStorage.removeItem("token")
@@ -103,7 +101,6 @@ $(document).ready(function(){
       generateToken()
       }
       else {
-        console.log(localStorage.getItem("token"))
         msTranslation(text)
         }
     })
