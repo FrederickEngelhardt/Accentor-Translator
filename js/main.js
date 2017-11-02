@@ -59,10 +59,30 @@ function createNav(){
 
 // EVENT LISTENERS
 function createListeners(){
-  $(".submit-button").click(function(event){
+  // SWAP LANGUAGES
+  $("#swap").click(function(event){
     event.preventDefault()
-    console.log('clicked')
-    if (localStorage.getItem("selected") !== null || $("#input_text")[0].innerHTML === '' ){
+    let holder1 = localStorage.getItem("inputName")
+    let holder1Name = localStorage.getItem("inputLang")
+    let holder2 = localStorage.getItem("outputName")
+    let holder2Name = localStorage.getItem("name")
+    //swaps full names for display reasons
+    localStorage.setItem("inputLang", holder2Name)
+    localStorage.setItem("name", holder1Name)
+    // swaps name codes
+    localStorage.setItem("outputName", holder1Name)
+    localStorage.setItem("inputName", holder2Name)
+
+    // GUI to show swap
+    $("#input-title")[0].innerHTML = "Input Language: <span>"+localStorage.getItem("inputLang")+"</span>"
+    $("#translation-title")[0].innerHTML = "Output Language: <span>"+localStorage.getItem("name")+"</span>"
+
+
+  })
+  // Click the submit button
+  $("#submit").click(function(event){
+    event.preventDefault()
+    if (localStorage.getItem("outputName") !== null || $("#input_text")[0].innerHTML === '' ){
       text = $("#input_text")[0]["value"]
       if (localStorage.getItem("type") === "lang"){
         msTranslation(text)
@@ -86,7 +106,7 @@ function createListeners(){
       event.preventDefault()
       // $("#language")[0].innerHTML = "Language: "+i
       $("#translation-title")[0].innerHTML = "Output Accent: <span>"+i+"</span"
-      localStorage.setItem("selected",translateAccents[i])
+      localStorage.setItem("outputName",translateAccents[i])
       localStorage.setItem("name",i)
       localStorage.setItem("type","accent")
     })
@@ -98,7 +118,7 @@ function createListeners(){
       event.preventDefault()
       // $("#language")[0].innerHTML = "Language: "+translateLanguages[i]
       $("#translation-title")[0].innerHTML = "Output Language <span>"+translateLanguages[i]+"</span>"
-      localStorage.setItem("selected",i)
+      localStorage.setItem("outputName",i)
       localStorage.setItem("name",translateLanguages[i])
       localStorage.setItem("type","lang")
     })
@@ -117,7 +137,7 @@ function createListeners(){
 
 function translate (text) {
   let searchString = createSearchString(text)
-  let language = localStorage.getItem("selected")
+  let language = localStorage.getItem("outputName")
   let inputString = "http://api.funtranslations.com/translate/"+language+"?text=" + searchString;
   apiSearch(inputString)
 }
@@ -145,7 +165,7 @@ function apiSearch (inputString) {
 
 $(document).ready(function(){
   // check to see if local storage contains a selected value when document loads
-  if (localStorage.getItem("selected") !== null){
+  if (localStorage.getItem("outputName") !== null){
     $("#translation-title")[0].innerHTML = "Output Language: <span>"+localStorage.getItem("name")+"</span>"
   }
   if (localStorage.getItem("inputLang") !== null){

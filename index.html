@@ -56,17 +56,17 @@
               </div>
             </li>
             <li>
-              <a class="collapsible-header">Accents<i class="material-icons">arrow_drop_down</i></a>
+              <a class="collapsible-header">Languages<i class="material-icons">arrow_drop_down</i></a>
               <div class="collapsible-body">
-                <ul class="accent-selector">
+                <ul class="language-selector">
                   <!-- NAV TABLE dropped in here -->
                 </ul>
               </div>
             </li>
             <li>
-              <a class="collapsible-header">Languages<i class="material-icons">arrow_drop_down</i></a>
+              <a class="collapsible-header">Fun Accents<i class="material-icons">arrow_drop_down</i></a>
               <div class="collapsible-body">
-                <ul class="language-selector">
+                <ul class="accent-selector">
                   <!-- NAV TABLE dropped in here -->
                 </ul>
               </div>
@@ -86,6 +86,9 @@
           <label for="icon_telephone">Type a sentence in here</label>
         </div>
         <div class="right col s12 m4 l4">
+          <button id="swap" class="submit-button right blue lighten-1 btn waves-effect waves-light" type="submit" name="action">Swap
+            <i class="material-icons small right">swap_calls</i>
+          </button>
         <button id="submit" class="submit-button right btn waves-effect waves-light" type="submit" name="action">translate
           <i class="material-icons small right">send</i>
         </button>
@@ -123,6 +126,7 @@
           1. Accents API has a limit of 5 queries/hr per IP address. Use a VPN if you want to use this API more.
           <br><br>
           2. Accents will always translate from English to Accented English.
+          3. All language choices are stored in local storage.
 
 
       </p>
