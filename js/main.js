@@ -123,6 +123,10 @@ function apiSearch (inputString) {
     })
     // return translatedString
   }
+  function generateModal(){
+    $('#modal1').modal('open');
+    localStorage.setItem('message', true)
+  }
 
 $(document).ready(function(){
   // check to see if local storage contains a selected value when document loads
@@ -133,4 +137,11 @@ $(document).ready(function(){
   sideNav()
   createNav()
   createListeners()
+  $('#modal1').modal()
+  if (localStorage.getItem('message') === null){
+    generateModal()
+  }
+  //  $('#modal1').event.target(function(){
+  //    console.log('clicked')
+  //  })
 }) //end of document.ready
