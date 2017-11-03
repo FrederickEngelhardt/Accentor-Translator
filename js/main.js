@@ -59,15 +59,19 @@ function createListeners(){
     }
     event.preventDefault()
     let holder1 = localStorage.getItem("inputName")
+    console.log(holder1)
     let holder1Name = localStorage.getItem("inputLang")
+    console.log(holder1Name)
     let holder2 = localStorage.getItem("outputName")
+    console.log(holder2)
     let holder2Name = localStorage.getItem("name")
+    console.log(holder2Name)
     //swaps full names for display reasons
     localStorage.setItem("inputLang", holder2Name)
     localStorage.setItem("name", holder1Name)
     // swaps name codes
-    localStorage.setItem("outputName", holder1Name)
-    localStorage.setItem("inputName", holder2Name)
+    localStorage.setItem("outputName", holder1)
+    localStorage.setItem("inputName", holder2)
 
     // GUI to show swap
     $("#input-title")[0].innerHTML = "Input Language: <span>"+localStorage.getItem("inputLang")+"</span>"
