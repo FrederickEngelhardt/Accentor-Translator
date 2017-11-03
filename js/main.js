@@ -3,6 +3,7 @@ var text
 const translateAccents = {
   yoda: "yoda.json",
   pirate: "pirate.json",
+  gungan: "gungan.json",
   piglatin: "piglatin.json",
   dothraki: "dothraki.json",
   huttese: "huttese.json",
