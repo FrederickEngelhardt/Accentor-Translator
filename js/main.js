@@ -76,7 +76,7 @@ function createListeners(){
 
 
   })
-  // Click Enter to checkSubmit
+  // Click Enter to submit
   $(document).keypress(function(e) {
     if(e.which == 13) {
       if (localStorage.getItem("outputName") !== null || $("#input_text")[0].innerHTML === '' ){
@@ -118,7 +118,10 @@ function createListeners(){
     $(search).click(function(event){
       event.preventDefault()
       // $("#language")[0].innerHTML = "Language: "+i
+      $("#input-title")[0].innerHTML = "Input Language: <span> English </span"
       $("#translation-title")[0].innerHTML = "Output Accent: <span>"+i+"</span"
+      localStorage.setItem("inputLang", "English")
+      localStorage.setItem("inputName", "en")
       localStorage.setItem("outputName",translateAccents[i])
       localStorage.setItem("name",i)
       localStorage.setItem("type","accent")
