@@ -10,7 +10,7 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--materialize  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,25 +44,24 @@
           <ul id="slide-out" class="side-nav">
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
-            <li>  <!-- Modal Trigger -->
-              <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Instructions</a></li>
-            <li>
+            <li class="row">  <!-- Modal Trigger --> <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Instructions</a></li>
+            <li class="row">
               <a class="collapsible-header">Starting Language (default EN)<i class="material-icons">arrow_drop_down</i></a>
               <div class="collapsible-body">
-                <ul class="starting-selector">
+                <ul class="starting-selector row">
                   <!-- NAV TABLE dropped in here -->
                 </ul>
               </div>
             </li>
-            <li>
-              <a class="collapsible-header">Languages<i class="material-icons">arrow_drop_down</i></a>
+            <li class="row">
+              <a class="collapsible-header row">Languages<i class="material-icons">arrow_drop_down</i></a>
               <div class="collapsible-body">
                 <ul class="language-selector">
                   <!-- NAV TABLE dropped in here -->
                 </ul>
               </div>
             </li>
-            <li>
+            <li class="row">
               <a class="collapsible-header">Fun Accents<i class="material-icons">arrow_drop_down</i></a>
               <div class="collapsible-body">
                 <ul class="accent-selector">
@@ -70,7 +69,7 @@
                 </ul>
               </div>
             </li>
-            <li><a href="#!">Return</a></li>
+            <li class="row"><a href="#!">Return</a></li>
           </ul>
         </li>
       </ul>
@@ -79,7 +78,7 @@
   </nav>
         </div>
 
-        <div class="input-field col l12 s12">
+        <div class="input-field col l12 m12 s12">
           <i class="material-icons prefix">text_fields</i>
           <input id="input_text" type="text" class="validate">
           <label for="icon_telephone">Type a sentence in here</label>

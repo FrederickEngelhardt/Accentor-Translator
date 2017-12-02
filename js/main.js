@@ -60,13 +60,9 @@ function createListeners(){
     }
     event.preventDefault()
     let holder1 = localStorage.getItem("inputName")
-    console.log(holder1)
     let holder1Name = localStorage.getItem("inputLang")
-    console.log(holder1Name)
     let holder2 = localStorage.getItem("outputName")
-    console.log(holder2)
     let holder2Name = localStorage.getItem("name")
-    console.log(holder2Name)
     //swaps full names for display reasons
     localStorage.setItem("inputLang", holder2Name)
     localStorage.setItem("name", holder1Name)
@@ -79,6 +75,22 @@ function createListeners(){
     $("#translation-title")[0].innerHTML = "Output Language: <span>"+localStorage.getItem("name")+"</span>"
 
 
+  })
+  // Click Enter to checkSubmit
+  $(document).keypress(function(e) {
+    if(e.which == 13) {
+      if (localStorage.getItem("outputName") !== null || $("#input_text")[0].innerHTML === '' ){
+        text = $("#input_text")[0]["value"]
+        if (text === '') {return alert('Please input text.')}
+        if (localStorage.getItem("type") === "lang"){
+          msTranslation(text)
+        }
+        else if (localStorage.getItem("type") === "accent"){
+          translate(text)
+        }
+      }
+      else {return alert('Please select a language.')}
+    }
   })
   // Click the submit button
   $("#submit").click(function(event){
